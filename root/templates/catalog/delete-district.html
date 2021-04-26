@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Удаление района{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <hr>
+    <h2>Удаление района</h2>
+    <hr>
+    <h4>Вы собираетесь удалить район со списка:</h4>
+    <h5>{{ del_district.name }}</h5>
+    <h4 style="color: red">Подтвердите удаление</h4>
+    <form method="post" action="/catalog/delete-district/{{del_district.id}}">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" class="btn primary" style="width: 200px">
+    </form>
+    <a href="/catalog/district-list">Вернуться к списку районов</a>
+    <hr>
+</div>
+{% endblock content %}

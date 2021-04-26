@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Удаление объявления{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <hr>
+    <h2>Удаление объявления</h2>
+    <hr>
+    <h4>Вы собираетесь удалить объявление:</h4>
+    <h5>{{ del_offer.title }} / {{ del_offer.owner }} / {{ del_offer.publish }}</h5>
+    <h4 style="color: red">Подтвердите удаление</h4>
+    <form method="post" action="/catalog/delete/{{del_offer.id}}">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" class="btn primary" style="width: 200px">
+    </form>
+    <a href="/catalog/offer-list">Вернуться к списку объявлений</a>
+    <hr>
+</div>
+{% endblock content %}

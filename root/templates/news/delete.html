@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Удаление новости{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <hr>
+    <h2>Удаление новости</h2>
+    <hr>
+    <h4>Вы собираетесь удалить новость:</h4>
+    <h5>{{ del_post.title }} / {{ del_post.author }} / {{ del_post.publish }}</h5>
+    <h4 style="color: red">Подтвердите удаление</h4>
+    <form method="post" action="/news/delete/{{del_post.id}}">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" class="btn primary" style="width: 200px">
+    </form>
+    <a href="/news/list">Вернуться к списку новостей</a>
+    <hr>
+</div>
+{% endblock content %}

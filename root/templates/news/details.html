@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Просмотр новости{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <hr>
+    <h2>Просмотр новости - {{ single_post.id }}</h2>
+    <hr>
+        <div>
+            <img src="/media/{{single_post.image}}" alt="" width="30%"
+                 align="left" style="margin-right: 50px">
+            <div id="post_view">
+            <h4>{{single_post.title}}</h4>
+            <h5>
+                {{single_post.publish}} => {{single_post.author}}
+            </h5>
+            <h6>{{single_post.content}}</h6>
+            <a href="/news/list">Вернуться к списку новостей</a>
+            <div style="clear: left"></div>
+        </div>
+    </div>
+</div>
+<style>
+    #post_view {
+        text-align: justify;
+        padding: 20px;
+    }
+
+</style>
+{% endblock content %}

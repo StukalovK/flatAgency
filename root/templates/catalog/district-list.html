@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block title %}
+    Список районов
+{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <hr>
+    <h2>Список районов</h2>
+    <a href="/catalog/add-district">Добавить район</a>
+    <hr>
+    <table class="offer" border="1" width="100%">
+        <tr>
+            <th>District name</th>
+            <th>Manage</th>
+        </tr>
+        {% for district in all_districs %}
+        <tr>
+            <td>{{ district.name }}</td>
+            <td>
+                |
+                <a href="/catalog/delete-district/{{ district.id }}"">Delete</a>
+                |
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+</div>
+{% endblock content %}

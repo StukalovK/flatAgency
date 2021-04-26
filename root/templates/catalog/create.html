@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Добавление объявления{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <hr>
+    <h2>Добавление объявления</h2>
+    <hr>
+    <div style="text-align: left">
+        <form method="post" action="/catalog/create" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="form_template">
+                {% for field in form %}
+                    <div class="form-group">
+                    {{ field.label_tag }}
+                    <div>{{ field }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p style="margin-top: 20px">
+                <input id="b1" type="submit" value="Отправить" class="btn btn-success">
+                <input id="b2" type="reset" value="Очистить" class="btn btn-success">
+            </p>
+        </form>
+    </div>
+    <a href="/catalog/offer-list">Вернуться к списку объявлений</a>
+    <hr>
+</div>
+<style>
+    .form-group input {
+        width: 50%;
+        heigh: 30px;
+    }
+    .form-group textarea  {
+        width: 5-%;
+    }
+    #b1, #b2 {
+        width: 5-px;
+    }
+</style>
+{% endblock content %}
